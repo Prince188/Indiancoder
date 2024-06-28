@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors'); 
+const cors = require('cors');
 const authRoute = require('./router/auth-router');
 const contactRoute = require('./router/contact-router');
 const serviceRoute = require('./router/service-router');
@@ -8,13 +8,13 @@ const adminRoute = require('./router/admin-router');
 const connectDb = require('./utils/db');
 const errorMiddleware = require('./middleware/error-middleware');
 const { MongoClient } = require('mongodb');
+const path = require('path');
 
 const app = express();
 
 // handle cors
 const corsOptions = {
-    // origin: 'http://localhost:3000',
-    origin: 'https://indiancoder.onrender.com',
+    origin: 'http://localhost:3000',
     methods: 'GET, POST, PUT, DELETE, PATCH, HEAD',
     credentials: true,
     optionsSuccessStatus: 200
@@ -29,12 +29,23 @@ app.use('/api/admin', adminRoute);
 app.use('/api/service', serviceRoute);
 app.use(errorMiddleware);
 
-// Handle POST requests to the root URL
-app.use('/', (req, res) => {
-    res.send('Received a POST request!');
-});
+// deploy
 
+const __dirname1 = path.resolve();
 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname1, "/client/build")));
+
+    app.get("*", (req, res) =>
+        res.sendFile(path.resolve(__dirname1, "client", "build", "index.html"))
+    );
+} else {
+    app.get("/", (req, res) => {
+        res.send("API is running..");
+    });
+}
+
+// deploy
 
 const PORT = process.env.PORT || 5000;
 
