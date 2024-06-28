@@ -1,0 +1,93 @@
+#root {
+    --dark-color: #242424;
+}
+
+footer {
+    margin-top: auto;
+}
+
+
+.footer-small {
+    height: 50px;
+    background-color: #deacf5;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 1.3rem;
+    height: 100px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.footer-small button {
+    margin: auto;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+}
+
+.footer-small p {
+    color: #000;
+    font-size: 2.5rem;
+
+}
+
+.container-footer {
+    background-color: #9754cb;
+    color: #fff;
+    margin-top: 2rem;
+    font-weight: 500;
+    /* height: 40px; */
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.footer-head {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.footer-body {
+    display: flex;
+}
+
+.footer-body .grid-four-cols {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr) !important;
+}
+
+.div1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div1 p {
+    opacity: 0.8;
+    font-weight: lighter;
+}
+
+.div1 h2 {
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+.div1 a {
+    font-weight: 500;
+    color: white;
+}
+
+.div1 a:hover {
+    color: #deacf5;
+}
+
+/* for mobile css */
+@media screen and (max-width: 480px) {
+    .div1 a{
+        font-size: 1.6rem;
+    }
+}
