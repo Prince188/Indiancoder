@@ -164,7 +164,7 @@ export const Service = () => {
                                 </div>
                                 <div className="card-details">
                                     <div className="grid">
-                                        <div className="" style={{display : 'flex'}}>
+                                        <div className="o" style={{display : 'flex' , marginRight : 'auto'}}>
                                             <p title={curElem.provider}>{curElem.provider}</p>
                                             {/* <button style={{height :30 , width : 30 , display : 'flex', fontSize : '3.5rem' , justifyContent : 'center' , alignItems : 'center' }}>&raquo;</button> */}
                                         </div>
@@ -172,7 +172,7 @@ export const Service = () => {
                                     <h2 title={curElem.service}>{curElem.service}</h2>
                                     <p title={curElem.description}>{curElem.description}</p>
                                     <div className="p" style={{ display: 'flex', alignItem: 'center', justifyContent: 'space-between', height: '26.8px' }}>
-                                        {curElem.link ? (<p title={curElem.description}><NavLink to={curElem.link} target="_blank">Click to visit</NavLink></p>) : ("")}
+                                        {curElem.link ? (<p title={curElem.description}><NavLink to={curElem.link} target="_blank" style={{fontSize : '14px'}}>Click to visit</NavLink></p>) : ("")}
                                         <div style={{ fontSize: '1.5rem', color: 'grey', position: 'absolute', right: '1rem' }}>Uploaded on : {handleDate(curElem.createdAt)}</div>
                                     </div>
                                 </div>
