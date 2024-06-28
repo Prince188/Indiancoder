@@ -96,7 +96,7 @@ export const Login = () => {
                                     </div>
                                     <div>
                                         <label htmlFor="password">Password</label>
-                                        <input type="password" name="password" id="password" placeholder="Enter name" required autoComplete="off" value={user.password} onChange={handleInput} />
+                                        <input type="password" name="password" id="password" placeholder="Enter password" required autoComplete="off" value={user.password} onChange={handleInput} />
                                     </div>
                                     <div>
                                         <small>Not a user ? <NavLink to='/register'>Register Now</NavLink></small>
