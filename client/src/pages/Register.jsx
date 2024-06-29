@@ -93,11 +93,11 @@ export const Register = () => {
                                     </div>
                                     <div>
                                         <label htmlFor="phone">Phone</label>
-                                        <input type="tel" name="phone" id="phone" placeholder="Enter mobile number" required autoComplete="off" value={user.phone} onChange={handleInput} />
+                                        <input type="tel" name="phone" id="phone" placeholder="Enter name" required autoComplete="off" value={user.phone} onChange={handleInput} />
                                     </div>
                                     <div>
                                         <label htmlFor="password">Password</label>
-                                        <input type="password" name="password" id="password" placeholder="Enter password" required autoComplete="off" value={user.password} onChange={handleInput} />
+                                        <input type="password" name="password" id="password" placeholder="Enter name" required autoComplete="off" value={user.password} onChange={handleInput} />
                                     </div>
                                     <div>
                                         <small>Already a user ? <NavLink to='/login'>Login Now</NavLink></small>

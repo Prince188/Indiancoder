@@ -151,7 +151,7 @@ export const Service = () => {
                                     {/* <p>{curElem.price}</p> */}
                                 </div>
                                 <div className="card-img">
-                                    <img src="/images/thumb.png" alt="" width={200} />
+                                    <img src="/images/thu.jpg" alt="" />
                                     {
                                         user.isAdmin && (
                                             <div className="service-btn">
