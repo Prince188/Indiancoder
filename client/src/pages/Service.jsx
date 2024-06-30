@@ -1,44 +1,55 @@
-import { useState } from "react"
-import { useAuth } from "../store/auth"
-import {MdDelete, MdEdit } from "react-icons/md";
+import { useState } from "react";
+import { useAuth } from "../store/auth";
+import { MdDelete, MdEdit } from "react-icons/md";
 import { toast } from "react-toastify";
 import { NavLink } from "react-router-dom";
 
 export const Service = () => {
-    const { services, user, getServices, authorizationToken ,API } = useAuth()
-    const [modal, setModal] = useState(false)
-    const [updateModal, setUpdateModal] = useState(false)
+    const { services, user, getServices, authorizationToken, API } = useAuth();
+    const [modal, setModal] = useState(false);
+    const [updateModal, setUpdateModal] = useState(false);
     const [serviceData, setServiceData] = useState({
         service: "",
         description: "",
         price: "",
         provider: "",
-        link: ""
-    })
+        link: "",
+        source: [] // Changed to array
+    });
     const [serviceDataUpdate, setServiceDataUpdate] = useState({
         service: "",
         description: "",
         price: "",
         provider: "",
-        link: ""
-    })
+        link: "",
+        source: [] // Changed to array
+    });
+
+    //& Handle input while adding or updating the data 
 
     const handleInput = (e) => {
         let name = e.target.name;
         let value = e.target.value;
 
+        if (name === "source") {
+            value = value.split("[SPLIT_HERE]"); // Split the input by commas
+        }
+
         if (updateModal) {
             setServiceDataUpdate({
                 ...serviceDataUpdate,
                 [name]: value
-            })
+            });
         } else {
             setServiceData({
                 ...serviceData,
                 [name]: value
-            })
+            });
         }
-    }
+    };
+
+    //& Handle delete the data 
+
 
     const handleDelete = async (id) => {
         try {
@@ -51,7 +62,7 @@ export const Service = () => {
 
             if (response.ok) {
                 toast.success("Service deleted successfully");
-                getServices()
+                getServices();
             } else {
                 toast.error("Failed to delete service");
             }
@@ -59,8 +70,11 @@ export const Service = () => {
             console.log(error);
             toast.error("Failed to delete service");
         }
-        getServices()
+        getServices();
     };
+
+    //& Handle submit the data 
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -72,7 +86,7 @@ export const Service = () => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(serviceData)
-            })
+            });
 
             if (response.ok) {
                 setServiceData({
@@ -80,8 +94,9 @@ export const Service = () => {
                     description: "",
                     price: "",
                     provider: "",
-                    link: ""
-                })
+                    link: "",
+                    source: []
+                });
                 toast.success("Service added successfully");
             } else {
                 toast.error("Failed to add service");
@@ -90,9 +105,12 @@ export const Service = () => {
             console.log(error);
             toast.error("Failed to add service");
         }
-        setModal(false)
-        getServices()
-    }
+        setModal(false);
+        getServices();
+    };
+
+    //& Handle update the data 
+
 
     const handleUpdate = (service) => {
         setServiceDataUpdate(service);
@@ -122,7 +140,9 @@ export const Service = () => {
             console.log(error);
             toast.error("Failed to update service");
         }
-    }
+    };
+
+    //& Handle date 
 
     const handleDate = (dateString) => {
         const date = new Date(dateString);
@@ -130,7 +150,7 @@ export const Service = () => {
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const year = date.getFullYear();
         return `${day}/${month}/${year}`;
-    }
+    };
 
     return (
         <div className="main">
@@ -164,16 +184,17 @@ export const Service = () => {
                                 </div>
                                 <div className="card-details">
                                     <div className="grid">
-                                        <div className="o" style={{display : 'flex' , marginRight : 'auto'}}>
+                                        <div className="o" style={{ display: 'flex', marginRight: 'auto' }}>
                                             <p title={curElem.provider}>{curElem.provider}</p>
                                             {/* <button style={{height :30 , width : 30 , display : 'flex', fontSize : '3.5rem' , justifyContent : 'center' , alignItems : 'center' }}>&raquo;</button> */}
                                         </div>
                                     </div>
                                     <h2 title={curElem.service}>{curElem.service}</h2>
                                     <p title={curElem.description}>{curElem.description}</p>
-                                    <div className="p" style={{ display: 'flex', alignItem: 'center', justifyContent: 'space-between', height: '26.8px' }}>
-                                        {curElem.link ? (<p title={curElem.description}><NavLink to={curElem.link} target="_blank" style={{fontSize : '14px'}}>Click to visit</NavLink></p>) : ("")}
-                                        <div style={{ fontSize: '1.5rem', color: 'grey', position: 'absolute', right: '1rem' }}>Uploaded on : {handleDate(curElem.createdAt)}</div>
+                                    <div className="p" style={{ display: 'flex', alignItem: 'center', justifyContent: 'space-between' }}>
+                                        {/* {curElem.link ? (<p title={curElem.description}><NavLink to={curElem.link}  style={{fontSize : '14px'}}>Click to visit</NavLink></p>) : ("")} */}
+                                        <NavLink to={`/Singleservice/${curElem._id}`} ><button>Learn more</button></NavLink>
+                                        Uploaded on : {handleDate(curElem.createdAt)}
                                     </div>
                                 </div>
                             </div>
@@ -202,21 +223,27 @@ export const Service = () => {
                                 <div>
                                     <label htmlFor="provider">Provider</label>
                                     <input type="text" name="provider" id="provider" placeholder="Enter provider name" required autoComplete="off" value={serviceData.provider} onChange={handleInput} />
+                                    {/* <textarea name="provider" id="provider" placeholder="Enter provider name" required autoComplete="off" value={serviceData.provider} onChange={handleInput}></textarea> */}
                                 </div>
                                 <div>
                                     <label htmlFor="link">Link</label>
                                     <input type="text" name="link" id="link" placeholder="Enter link" autoComplete="off" value={serviceData.link} onChange={handleInput} />
                                 </div>
+                                <div>
+                                    <label htmlFor="source">Source code</label>
+                                    <textarea name="source" id="source" placeholder="Enter source(s), comma-separated" required autoComplete="off" value={serviceData.source.join("[SPLIT_HERE]")} onChange={handleInput}></textarea>
+                                </div>
                                 <br />
                                 <div className="btn-group">
-                                    <button type="submit">insert</button>
-                                    <button type="button" onClick={() => setModal(false)} >close</button>
+                                    <button type="submit">Insert</button>
+                                    <button type="button" onClick={() => setModal(false)} >Close</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 )
             }
+            {/* Modal for updating the data  */}
             {
                 updateModal && (
                     <div className="modal">
@@ -242,6 +269,10 @@ export const Service = () => {
                                     <label htmlFor="link">Link</label>
                                     <input type="text" name="link" id="link" placeholder="Enter link" required autoComplete="off" value={serviceDataUpdate.link} onChange={handleInput} />
                                 </div>
+                                <div>
+                                    <label htmlFor="source">Source code</label>
+                                    <textarea name="source" id="source" placeholder="Enter source(s), comma-separated" required autoComplete="off" value={serviceDataUpdate.source.join("[SPLIT_HERE]")} onChange={handleInput}></textarea>
+                                </div>
                                 <br />
                                 <div className="btn-group">
                                     <button type="submit">Update</button>
@@ -253,5 +284,5 @@ export const Service = () => {
                 )
             }
         </div>
-    )
-}
+    );
+};

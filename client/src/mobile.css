@@ -487,6 +487,7 @@
     }
 
     .admin {
+        /* height: 40.6px; */
         & h1 {
             font-size: 3rem;
         }

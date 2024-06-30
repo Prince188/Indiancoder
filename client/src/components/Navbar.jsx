@@ -15,7 +15,6 @@ export const Navbar = () => {
 
                 <nav>
                     <ul>
-
                         {isLoggedIn ?
                             (<>
                                 <li><NavLink to="/">Home</NavLink></li>
@@ -33,7 +32,7 @@ export const Navbar = () => {
                         {
                             user.isAdmin ? (
                                 <>
-                                    <li><NavLink to="/profile">Profile</NavLink></li>
+                                    {/* <li><NavLink to="/profile">Profile</NavLink></li> */}
                                     <li><NavLink to="/admin">Admin</NavLink></li>
                                 </>) : ("")
                         }

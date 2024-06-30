@@ -14,6 +14,7 @@ import {AdminLayout} from './components/layouts/AdminLayout'
 import {AdminUsers} from './pages/AdminUsers'
 import { AdminContacts } from './pages/AdminContacts'
 import { Profile } from './pages/Profile'
+import Singleservice from './pages/Singleservice'
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/Singleservice/:id' element={<Singleservice />} />
           <Route path='*' element={<Error />} />
           <Route path='/admin' element={<AdminLayout />} >
             <Route path='users' element={<AdminUsers />} />

@@ -66,7 +66,7 @@ export const Profile = () => {
                     (
                         <>
                             <div className='main'>
-                                <div className="" style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                <div className="admin" style={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <h1>Profile</h1>
                                     <NavLink to="/logout"><button>Logout</button></NavLink>
                                 </div>
