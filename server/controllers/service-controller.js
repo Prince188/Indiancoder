@@ -13,6 +13,21 @@ const services = async (req, res) => {
     }
 }
 
+const singleservices = async (req,res) => {
+    try {
+        const id = req.params.id;
+        const data = await Service.findById(id);
+        if (!data) {
+            res.status(404).json({ message: 'Service not found' });
+            return;
+        }
+        res.status(200).json(data);
+    } catch (error) {
+        console.error(`Error fetching single service: ${error}`);
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+
 const servicesForm = async (req, res) => {
     try {
         const response = req.body
@@ -47,4 +62,4 @@ const servicesForUpdate = async (req, res) => {
     }
 }
 
-module.exports = { services, servicesForm, servicesFormDelete, servicesForUpdate }
+module.exports = { services,singleservices, servicesForm, servicesFormDelete, servicesForUpdate }

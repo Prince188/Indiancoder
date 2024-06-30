@@ -20,6 +20,13 @@ const serviceSchema = new Schema({
     link:{
         type : String , 
         // required: true
+    },
+    source:{
+        type : [String] ,
+    },
+    image:{
+        type: String , 
+        default : '/images/thu.jpg'
     }
 },{
     timestamps : true,
