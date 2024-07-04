@@ -19,7 +19,7 @@ export const Navbar = () => {
             setIsMenuOpen(true)
         }
         else{
-            setIsMenuOpen(!isMenuOpen);
+            setIsMenuOpen(false);
         }
     }
 
