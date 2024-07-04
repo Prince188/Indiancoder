@@ -14,6 +14,15 @@ export const Navbar = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const toggleMenu2=() =>{
+        if(window.innerWidth > 480){
+            setIsMenuOpen(true)
+        }
+        else{
+            setIsMenuOpen(!isMenuOpen);
+        }
+    }
+
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth > 480) {
@@ -45,6 +54,7 @@ export const Navbar = () => {
         }
     }, [isMenuOpen]);
 
+
     return (
         <header>
             <div className="container">
@@ -56,11 +66,11 @@ export const Navbar = () => {
                     <ul>
                         {isLoggedIn ?
                             (<>
-                                <li onClick={toggleMenu}><NavLink to="/"> <IoHomeOutline size={18} /> <span className='icon'>Home</span></NavLink></li>
-                                <li onClick={toggleMenu}><NavLink to="/about"> <IoInformationCircleOutline size={18} /> <span className="icon">About</span></NavLink></li>
-                                <li onClick={toggleMenu}><NavLink to="/service"> <IoBookOutline size={18} /><span className="icon">Courses</span></NavLink></li>
-                                <li onClick={toggleMenu}><NavLink to="/contact"><IoCallOutline size={18} /><span className="icon">Contact</span></NavLink></li>
-                                <li onClick={toggleMenu}><NavLink to="/logout"><IoLogOutOutline size={18} /><span className="icon">Logout</span></NavLink></li>
+                                <li onClick={toggleMenu2}><NavLink to="/"> <IoHomeOutline size={18} /> <span className='icon'>Home</span></NavLink></li>
+                                <li onClick={toggleMenu2}><NavLink to="/about"> <IoInformationCircleOutline size={18} /> <span className="icon">About</span></NavLink></li>
+                                <li onClick={toggleMenu2}><NavLink to="/service"> <IoBookOutline size={18} /><span className="icon">Courses</span></NavLink></li>
+                                <li onClick={toggleMenu2}><NavLink to="/contact"><IoCallOutline size={18} /><span className="icon">Contact</span></NavLink></li>
+                                <li onClick={toggleMenu2}><NavLink to="/logout"><IoLogOutOutline size={18} /><span className="icon">Logout</span></NavLink></li>
                             </>)
                             : (<>
                                 {/* <li><NavLink to="/register">Register</NavLink></li> */}
