@@ -567,7 +567,8 @@ form {
   }
 
   input:focus,
-  textarea:focus {
+  textarea:focus ,
+  select:focus {
     outline: none;
     border-bottom: 3px solid var(--btn-hover-color);
   }
