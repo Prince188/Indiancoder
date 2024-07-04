@@ -14,7 +14,8 @@ const app = express();
 
 // handle cors
 const corsOptions = {
-    origin: 'http://localhost:3000' || 'https://indiancoder.onrender.com',
+    origin: 'https://indiancoder.onrender.com',
+    // origin: 'http://localhost:3000' ,
     methods: 'GET, POST, PUT, DELETE, PATCH, HEAD',
     credentials: true,
     optionsSuccessStatus: 200

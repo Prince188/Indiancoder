@@ -24,9 +24,12 @@ const serviceSchema = new Schema({
     source:{
         type : [String] ,
     },
-    image:{
-        type: String , 
-        default : '/images/thu.jpg'
+    category: {
+        type :String,
+        enum : ['Projects' , 'Topics' , 'Solved questions']
+    },
+    pic:{
+        type : String,
     }
 },{
     timestamps : true,

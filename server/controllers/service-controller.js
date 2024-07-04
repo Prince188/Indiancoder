@@ -1,19 +1,21 @@
 const Service = require('../models/service-model')
 
 const services = async (req, res) => {
+
     try {
-        const response = await Service.find();
+        
+        const response = await Service.find()
         if (!response) {
             res.status(404).json({ message: 'Service not found' })
             return;
         }
-        res.status(200).json({ msg: response });
+        res.status(200).json({msg: response });
     } catch (error) {
         console.log(`Services: ${error}`);
     }
 }
 
-const singleservices = async (req,res) => {
+const singleservices = async (req, res) => {
     try {
         const id = req.params.id;
         const data = await Service.findById(id);
@@ -62,4 +64,4 @@ const servicesForUpdate = async (req, res) => {
     }
 }
 
-module.exports = { services,singleservices, servicesForm, servicesFormDelete, servicesForUpdate }
+module.exports = { services, singleservices, servicesForm, servicesFormDelete, servicesForUpdate }
