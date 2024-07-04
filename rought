@@ -1,0 +1,36 @@
+ {
+                        services.map((curElem, index) => (
+                            <div className="card" key={index}>
+                                <div className="price">
+                                    {/* <p>{curElem.price}</p> */}
+                                </div>
+                                <div className="card-img">
+                                    <img src={curElem.pic ? (`${curElem.pic}`) : ("/images/thu.jpg")} alt="" />
+                                    {
+                                        user.isAdmin && (
+                                            <div className="service-btn">
+                                                {/* <button><FaArrowAltCircleRight /> </button> */}
+                                                <button onClick={() => handleUpdate(curElem)}> <MdEdit /></button>
+                                                <button onClick={() => handleDelete(curElem._id)}> <MdDelete /></button>
+                                            </div>
+                                        )
+                                    }
+                                </div>
+                                <div className="card-details">
+                                    <div className="grid">
+                                        <div className="o" style={{ display: 'flex', marginRight: 'auto' }}>
+                                            <p title={curElem.provider}>{curElem.provider}</p>
+                                            {/* <button style={{height :30 , width : 30 , display : 'flex', fontSize : '3.5rem' , justifyContent : 'center' , alignItems : 'center' }}>&raquo;</button> */}
+                                        </div>
+                                    </div>
+                                    <h2 title={curElem.service}>{curElem.service}</h2>
+                                    <p title={curElem.description}>{curElem.description}</p>
+                                    <div className="p" style={{ display: 'flex', alignItem: 'center', justifyContent: 'space-between' }}>
+                                        {/* {curElem.link ? (<p title={curElem.description}><NavLink to={curElem.link}  style={{fontSize : '14px'}}>Click to visit</NavLink></p>) : ("")} */}
+                                        <NavLink to={`/Singleservice/${curElem._id}`} ><button>Learn more</button></NavLink>
+                                        Uploaded on : {handleDate(curElem.createdAt)}
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
