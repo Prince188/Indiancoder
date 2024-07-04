@@ -478,6 +478,8 @@ dd {
 /* GLOBAL CSS */
 
 .container {
+  display: flex;
+  justify-content: space-evenly;
   max-width: 140rem;
   padding: 2rem 2.3rem;
   margin: 0 auto;
@@ -572,7 +574,8 @@ form {
 }
 
 .main {
-  padding: 0rem 15rem;
+  width: 100%;
+  padding: 2rem 8rem;
 }
 
 h1 {

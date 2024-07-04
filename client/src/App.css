@@ -3,3 +3,22 @@
   margin: 0 auto;
   /* padding: 2rem; */
 }
+
+.app{
+  display: flex;
+}
+
+.app-1{
+  width: 200px;
+}
+
+
+.app-2{
+flex: 1;
+}
+
+@media screen and (max-width: 480px) {
+  .app-1{
+    width: 36px;
+  }
+}

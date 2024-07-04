@@ -186,6 +186,10 @@
                 transform: scale(1.1);
             }
         }
+
+        & .registration-form{
+            width: 90%;
+        }
     }
 
     /* Hero section */

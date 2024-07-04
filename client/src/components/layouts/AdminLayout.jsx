@@ -21,20 +21,18 @@ export const AdminLayout = () => {
 
     return (
         <div className='main'>
-            <header>
-                <div className="section-registration">
-                    <div className="admin">
-                        <h1>Welcome Admin</h1>
-                        <nav>
-                            <ul>
-                                <li><NavLink to={"/admin/users"}> <FaUser /> Users</NavLink></li>
-                                <li><NavLink to={"/admin/contact"}> <FaMessage />  Contacts</NavLink></li>
-                            </ul>
-                        </nav>
-                    </div>
-                    {/* <img src="/images/admin.png" alt="" width={430} style={{marginLeft : '50%' , transform : 'translateX(-50%)'}} /> */}
+            <div className="section-registration">
+                <h1>Welcome Admin</h1>
+                <div className="admin">
+                    <nav>
+                        <ul>
+                            <li><NavLink to={"/admin/users"}> <FaUser /> Users</NavLink></li>
+                            <li><NavLink to={"/admin/contact"}> <FaMessage />  Contacts</NavLink></li>
+                        </ul>
+                    </nav>
                 </div>
-            </header>
+                {/* <img src="/images/admin.png" alt="" width={430} style={{marginLeft : '50%' , transform : 'translateX(-50%)'}} /> */}
+            </div>
             <Outlet />
         </div>
     )

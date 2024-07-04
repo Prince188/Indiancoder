@@ -216,7 +216,7 @@ export const Service = () => {
         <div className="main">
             <section className="section-registration">
                 <div className="admin">
-                    <h1 className="main-heading">Services - {selectedOpt === "Select" ? ("ALL") : (selectedOpt)}</h1>
+                    <h1 className="main-heading">Course - {selectedOpt === "Select" ? ("ALL") : (selectedOpt)}</h1>
                     {
                         user.isAdmin && (
                             <button className="btn" onClick={() => setModal(true)}>Add Data</button>
@@ -295,7 +295,7 @@ export const Service = () => {
                 <div className="container">
                     <button
                         onClick={() => currentPageIndex > 1 && displayPages(currentPageIndex - 1)}
-                        style={{ cursor: currentPageIndex > 1 ? 'pointer' : 'no-drop' }}
+                        style={{ cursor: currentPageIndex > 1 ? 'pointer' : 'no-drop' , opacity : '0.2' }}
                         disabled={currentPageIndex <= 1}
                     >
                         &larr;

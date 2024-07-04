@@ -30,7 +30,7 @@ export const AdminContacts = () => {
 
 
     return (
-        <div className='main'>
+        <div className=''>
             <h2 style={{ fontSize: '3.5rem' }}>Manage Contacts</h2>
             <div className="container">
                 <table  border={0}>
