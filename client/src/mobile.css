@@ -69,12 +69,13 @@
     }
 
     input,
-    textarea {
+    textarea,
+    select {
         background-color: #121212;
         color: white;
         padding: 0.5rem 0.5rem;
         display: flex;
-        width: 350px;
+        width: 100% !important;
         /* width: 100%; */
         margin: 0.7rem 0;
         margin-top: 0;
@@ -429,7 +430,7 @@
 
     .modalCont {
         background-color: #242424;
-        width: fit-content;
+        width: 90%;
         height: fit-content;
         padding: 2rem;
         border-radius: 1rem;
@@ -487,9 +488,60 @@
     }
 
     .admin {
+
         /* height: 40.6px; */
         & h1 {
             font-size: 3rem;
         }
+    }
+
+    /* Pagination */
+
+    .pagination {
+        /* Assuming .pagination is the container for your pagination component */
+        margin: auto;
+        /* padding: 2px; */
+        color: white !important;
+    }
+
+    .pagination ul {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .pagination ul li {
+        height: 30px;
+        width: 40px;
+    }
+
+    .pagination ul li button {
+        border-color: white;
+        font-size: 0.8rem;
+        color: #fff !important;
+        /* Ensure this overrides any default color */
+        background-color: #6237a0;
+        font-weight: 800 !important;
+
+    }
+
+    .pagination .Mui-selected {
+        background-color: #9754cb !important;
+        /* Apply red background to selected button */
+        color: #fff !important;
+        /* Ensure text is white on selected button */
+    }
+
+    .pagination ul li button:hover {
+        background-color: #9754cb !important;
+    }
+
+    .css-1scal0h-MuiPaginationItem-root {
+        color: white !important;
+        font-size: 2.3rem !important;
+    }
+
+    #serachbar {
+        width: 130%;
     }
 }

@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { MdDelete, MdEdit, MdOutlineContentCopy, MdSave, MdCancel } from "react-icons/md";
+import { useScrollPosition } from "../components/useScrollPosition";
 
 const Singleservice = () => {
     const { id } = useParams();
@@ -13,6 +14,8 @@ const Singleservice = () => {
     const [newSource, setNewSource] = useState("");
     const [editedSource, setEditedSource] = useState("");
     const [editingIndex, setEditingIndex] = useState(null);
+    const navigate = useNavigate()
+    const scrollPosition = useScrollPosition();
 
     useEffect(() => {
         const fetchService = async () => {
@@ -165,6 +168,13 @@ const Singleservice = () => {
         }
     };
 
+    const handleBack = () => {
+        navigate(-1);
+        setTimeout(() => {
+            window.scrollTo(0, scrollPosition);
+        }, 0);
+    };
+
     if (!curElem) {
         return <p>Loading...</p>;
     }
@@ -174,7 +184,7 @@ const Singleservice = () => {
             <section className="section-registration">
                 <div className="admin">
                     <h1 className="main-heading" style={{ opacity: 0 }}>Services</h1>
-                    <NavLink to='/service'><button className="btn">Back</button></NavLink>
+                    <button className="btn" onClick={handleBack}>Back</button>
                 </div>
 
                 <div className="container grid grid-two-cols">
@@ -190,23 +200,30 @@ const Singleservice = () => {
                         <div className="service-name">
                             <dt><h2>Service</h2></dt>
                             <dd><h2>{curElem.service}</h2></dd>
-                            <dt><h2>Description</h2></dt>
-                            <dd><h2>{curElem.description}</h2></dd>
                         </div>
                     </div>
                 </div>
+                <div className="container">
+                    <NavLink to='/service'><button>Watch video</button></NavLink>
+                </div>
+                <div className="container">
+                    <div className="service-name2">
+                        <dt><h2>Description</h2></dt>
+                        <dd><h2>{curElem.description}</h2></dd>
+                    </div>
 
-                {
-                    user.isAdmin ?
-                        (
-                            <div className="add-source">
-                                <label htmlFor="source">Source code</label>
-                                <textarea name="source" id="source" placeholder="Enter source(s), comma-separated" required autoComplete="off" value={newSource} onChange={handleNewSourceChange}></textarea>
-                                <button onClick={handleAddSource}>Add Source</button>
-                            </div>
-                        )
-                        : ("")
-                }
+                    {
+                        user.isAdmin ?
+                            (
+                                <div className="add-source">
+                                    <label htmlFor="source">Source code</label>
+                                    <textarea name="source" id="source" placeholder="Enter source(s), comma-separated" required autoComplete="off" value={newSource} onChange={handleNewSourceChange}></textarea>
+                                    <button onClick={handleAddSource}>Add Source</button>
+                                </div>
+                            )
+                            : ("")
+                    }
+                </div>
             </section>
 
             <section className="section-registration">

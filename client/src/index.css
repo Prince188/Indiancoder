@@ -1,157 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400&family=Lato:wght@700&display=swap');
 
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Baloo 2";
-  color-scheme: light dark;
-}
-
-
-
-::-webkit-scrollbar {
-  width: 0;
-}
-
-:root {
-  --bg-color: #f4f3ff;
-  --btn-color: #9754cb;
-  --btn-hover-color: #6237a0;
-  --dark-color: #242424;
-  --helper-color: #99b9ff;
-  --toastify-color-error: #9754cb;
-}
-
-html {
-  background-color: #121212;
-  /* padding: 0 15rem; */
-  font-size: 0.6rem;
-}
-
-::selection{
-  background-color: var(--btn-color);
-  color: var(--bg-color);
-}
-
-body {
-  /* padding: 0 15rem; */
-  margin: 0;
-  min-height: 100vh;
-  /* min-width: 32rem; */
-}
-
-.main {
-  padding: 0rem 15rem;
-}
-
-h1 {
-  font-size: 4.5rem;
-  line-height: 1.1;
-  font-weight: bold;
-}
-
-p,
-li,
-label,
-input,
-textarea {
-  font-size: 1.8rem;
-  line-height: 1.5;
-  letter-spacing: 0.1rem;
-  word-spacing: 0.06rem;
-}
-
-label::first-letter {
-  text-transform: uppercase !important;
-}
-
-label {
-  margin-bottom: 2rem !important;
-}
-
-input,
-textarea {
-  padding: 0.5rem 0.5rem;
-  display: flex;
-  width: 400px;
-  margin: 0.7rem 0;
-  margin-top: 0;
-  border: none;
-  border-bottom: 3px solid var(--btn-color);
-  transition: 0.1s;
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border-bottom: 3px solid var(--btn-hover-color);
-}
-
-
-a {
-  font-weight: 800;
-  font-size: 1.6rem;
-  letter-spacing: 0.1rem;
-  color: var(--btn-color);
-  text-decoration: inherit;
-}
-
-
-li {
-  list-style: none;
-}
-
-.container {
-  max-width: 140rem;
-  padding: 2rem 2.3rem;
-  margin: 0 auto;
-}
-
-.admin {
-  padding:0 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.grid {
-  display: grid;
-  /* flex-direction: column; */
-  gap: 6.4rem;
-}
-
-.grid-two-cols {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.grid-three-cols {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.grid-four-cols {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-button {
-  text-transform: uppercase;
-  padding: 0.6rem 1.2rem;
-  font-size: 1.7rem;
-  font-weight: 500;
-  background-color: var(--btn-color);
-  border-radius: 0.8rem;
-  border: none;
-  cursor: pointer;
-  letter-spacing: 0.1rem;
-  transition: 0.3s;
-}
-
-button:hover {
-  /* box-shadow: inset 0 0 0 0.2rem var(--bg-color); */
-  background-color: var(--btn-hover-color);
-}
-
 /* Hero section */
 
 .section-hero {
@@ -162,6 +10,7 @@ button:hover {
   .hero-content {
     & p {
       margin: 2.4rem 0 4rem 0;
+      font-size: 1.8rem !important;
 
       &:first-child {
         margin: 0 0 1.2rem 0;
@@ -266,7 +115,7 @@ img:hover {
 }
 
 
-.service-btn{
+.service-btn {
   position: absolute;
   right: 1rem;
   display: none;
@@ -276,7 +125,7 @@ img:hover {
 }
 
 
-.card:hover .service-btn{
+.card:hover .service-btn {
   display: flex;
 }
 
@@ -288,7 +137,7 @@ img:hover {
   /* justify-content: center; */
 }
 
-.card-img img{
+.card-img img {
   border-radius: 1rem;
   aspect-ratio: 16/9;
   width: 100%;
@@ -346,6 +195,7 @@ img:hover {
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
 }
+
 .card p:last-child {
   height: 22px;
   line-height: 22px;
@@ -358,7 +208,7 @@ img:hover {
   font-size: 1.5rem;
 }
 
-.p{
+.p {
   display: flex;
   align-items: center;
 }
@@ -428,7 +278,7 @@ table tbody tr:last-child td:first-child {
   border-bottom-left-radius: 1.2rem;
 }
 
-.modalCont{
+.modalCont {
   background-color: #242424;
   width: fit-content;
   height: fit-content;
@@ -491,13 +341,13 @@ table tbody tr:last-child td:first-child {
 
 /* Single service page css */
 
-.single-service{
+.single-service {
   /* background-color: red; */
   height: 100%;
   width: 100%;
 }
 
-.service-name{
+.service-name {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -505,7 +355,7 @@ table tbody tr:last-child td:first-child {
   text-align: left;
 }
 
-.service-name h2{
+.service-name h2 {
   display: -webkit-box;
   line-height: 28px;
   height: 84;
@@ -514,7 +364,21 @@ table tbody tr:last-child td:first-child {
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+/* Above one part is only for desc */
+.service-name2 h2 {
+  display: -webkit-box;
+  line-height: 28px;
+  height: 84;
+  margin-bottom: 1.2rem;
+  font-size: 2rem;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
 }
 
@@ -527,7 +391,7 @@ dl {
 dt {
   font-weight: bold;
 
-  & h2{
+  & h2 {
     height: 30px !important;
     text-decoration: underline;
     color: #deacf5;
@@ -536,9 +400,11 @@ dt {
 }
 
 dd {
-  flex-basis: 50%; /* Adjust the width of <dd> as per your design */
+  flex-basis: 50%;
+  /* Adjust the width of <dd> as per your design */
   margin-left: 0;
-  padding-left: 50px; /* Add left padding for indentation */
+  padding-left: 50px;
+  /* Add left padding for indentation */
 }
 
 .source-code {
@@ -553,18 +419,225 @@ dd {
 }
 
 .custom-syntax-highlighter {
-  background-color: transparent !important; /* Override background color */
-  padding: 0; /* Optionally adjust padding */
-  margin: 0; /* Optionally adjust margin */
+  background-color: transparent !important;
+  /* Override background color */
+  padding: 0;
+  /* Optionally adjust padding */
+  margin: 0;
+  /* Optionally adjust margin */
 }
 
 .service-btns {
-  position: absolute; /* Change to absolute positioning */
+  position: absolute;
+  /* Change to absolute positioning */
   top: 0;
   right: 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   z-index: 1;
-  padding: 1rem; /* Optional: Add padding for better button visibility */
+  padding: 1rem;
+  /* Optional: Add padding for better button visibility */
+}
+
+/* Pagination */
+
+.pagination {
+  /* Assuming .pagination is the container for your pagination component */
+  margin: auto;
+  color: white !important;
+}
+
+.pagination ul li button {
+  border-color: white;
+  font-size: 1.5rem;
+  color: #fff !important;
+  /* Ensure this overrides any default color */
+  background-color: #6237a0;
+  font-weight: 800 !important;
+
+}
+
+.pagination .Mui-selected {
+  background-color: #9754cb !important;
+  /* Apply red background to selected button */
+  color: #fff !important;
+  /* Ensure text is white on selected button */
+}
+
+.pagination ul li button:hover {
+  background-color: #9754cb !important;
+}
+
+.css-1scal0h-MuiPaginationItem-root {
+  color: white !important;
+  font-size: 2.3rem !important;
+}
+
+
+/* GLOBAL CSS */
+
+.container {
+  max-width: 140rem;
+  padding: 2rem 2.3rem;
+  margin: 0 auto;
+}
+
+.admin {
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grid {
+  display: grid;
+  /* flex-direction: column; */
+  gap: 6.4rem;
+}
+
+.grid-two-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-three-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-four-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+button {
+  /* display: flex; */
+  /* align-items: center; */
+  text-transform: uppercase;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.7rem;
+  font-weight: 500;
+  background-color: var(--btn-color);
+  border-radius: 0.8rem;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  transition: 0.3s;
+}
+
+button:hover {
+  /* box-shadow: inset 0 0 0 0.2rem var(--bg-color); */
+  background-color: var(--btn-hover-color);
+}
+
+form {
+
+  p,
+  li,
+  label,
+  input,
+  textarea,
+  select {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.06rem;
+  }
+
+
+  label::first-letter {
+    text-transform: uppercase !important;
+  }
+
+  label {
+    margin-bottom: 2rem !important;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    width: 400px;
+    margin: 0.7rem 0;
+    margin-top: 0;
+    border: none;
+    border-bottom: 3px solid var(--btn-color);
+    transition: 0.1s;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-bottom: 3px solid var(--btn-hover-color);
+  }
+}
+
+.main {
+  padding: 0rem 15rem;
+}
+
+h1 {
+  font-size: 4.5rem;
+  line-height: 1.1;
+  font-weight: bold;
+}
+
+
+a {
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  color: var(--btn-color);
+  text-decoration: inherit;
+}
+
+
+li {
+  list-style: none;
+}
+
+
+
+/* UNIVERSAL */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Baloo 2" !important;
+  color-scheme: light dark;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+:root {
+  --bg-color: #f4f3ff;
+  --btn-color: #9754cb;
+  --btn-hover-color: #6237a0;
+  --dark-color: #242424;
+  --helper-color: #99b9ff;
+  --toastify-color-error: #9754cb;
+}
+
+html {
+  background-color: #121212;
+  /* padding: 0 15rem; */
+  font-size: 0.6rem;
+}
+
+::selection {
+  background-color: var(--btn-color);
+  color: var(--bg-color);
+}
+
+body {
+  /* padding: 0 15rem; */
+  margin: 0;
+  min-height: 100vh;
+  /* min-width: 32rem; */
+}
+
+select{
+  height: 35px;
 }

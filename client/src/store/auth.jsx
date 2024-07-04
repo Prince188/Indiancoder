@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { Service } from "../pages/Service";
 // import axios from "axios";
 
 export const AuthContext = createContext()
@@ -16,7 +17,8 @@ export const AuthProvider = ({ children }) => {
     }
 
     const API =  'https://indiancoder.onrender.com';
-    console.log(API)
+    // const API = 'http://localhost:5000'
+    // console.log(API)
 
     let isLoggedIn = !!token
     // console.log("islogged in", isLoggedIn)
@@ -66,9 +68,9 @@ export const AuthProvider = ({ children }) => {
             })
 
             if (response.ok) {
-                const data = await response.json()
-                console.log("services data", data.msg);
-                setServices(data.msg)
+                const serviceData = await response.json()
+                console.log("services data", serviceData.msg);
+                setServices(serviceData.msg)
             }
         } catch (error) {
             console.log(`services fronted erroe: ${error}`);
@@ -85,9 +87,11 @@ export const AuthProvider = ({ children }) => {
     // Fetching service is over
 
 
-    return (<AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user, services, authorizationToken, getServices , API }}>
-        {children}
-    </AuthContext.Provider>)
+    return (<>
+        <AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user, services, authorizationToken, getServices, API }}>
+            {children}
+        </AuthContext.Provider>
+    </>)
 }
 
 export const useAuth = () => {

@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import React from 'react';
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
+import { usePagination } from "../components/Pagination";
 
 export const AdminUsers = () => {
     const [users, setUsers] = useState([]);
-    const { authorizationToken , API } = useAuth();
+    const { authorizationToken, API } = useAuth();
     const [modal, setModal] = useState(false);
     const [currentUser, setCurrentUser] = useState({
         _id: "",
@@ -14,6 +15,8 @@ export const AdminUsers = () => {
         phone: "",
         isAdmin: false // Initial value for isAdmin
     });
+
+    const [totalPages, startPageIndex, endPageIndex, currentPageIndex, displayPages] = usePagination(5, users.length)
 
     const getAllUsersData = async () => {
         try {
@@ -120,26 +123,53 @@ export const AdminUsers = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {users.map((curUser, index) => (
-                                <tr
-                                    key={curUser._id}
-                                    style={{ backgroundColor: curUser.isAdmin ? '#deacf5' : 'white' }}
-                                >
-                                    <td>{index + 1}</td>
-                                    <td>{curUser.username}</td>
-                                    <td>{curUser.email}</td>
-                                    <td>{curUser.phone}</td>
-                                    <td>{curUser.isAdmin ? 'Yes' : 'No'}</td>
-                                    <td>
-                                        <button onClick={() => handleUpdate(curUser)} >Edit</button>
-                                    </td>
-                                    <td>
-                                        {!curUser.isAdmin && (
-                                            <button onClick={() => handleDelete(curUser._id)}>Delete</button>
-                                        )}
-                                    </td>
-                                </tr>
-                            ))}
+                            {(() => {
+                                const renderUser = []
+                                for (let i = startPageIndex; i <= endPageIndex; i++) {
+                                    const index = i
+                                    const userData = users[i]
+                                    if (userData) {
+                                        renderUser.push(
+                                            <tr
+                                                key={userData._id}
+                                                style={{ backgroundColor: userData.isAdmin ? '#deacf5' : 'white' }}
+                                            >
+                                                <td>{index + 1}</td>
+                                                <td>{userData.username}</td>
+                                                <td>{userData.email}</td>
+                                                <td>{userData.phone}</td>
+                                                <td>{userData.isAdmin ? 'Yes' : 'No'}</td>
+                                                <td>
+                                                    <button onClick={() => handleUpdate(userData)} >Edit</button>
+                                                </td>
+                                                <td>
+                                                    {!userData.isAdmin && (
+                                                        <button onClick={() => handleDelete(userData._id)}>Delete</button>
+                                                    )}
+                                                </td>
+                                            </tr>
+                                        )
+                                    }
+                                }
+                                return renderUser
+                            })()}
+                            <tr>
+                                <td colSpan={7}>
+                                    <div className="" style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
+                                        <button
+                                            onClick={() => currentPageIndex > 1 && displayPages(currentPageIndex - 1)}
+                                            style={{ cursor: currentPageIndex > 1 ? 'pointer' : 'no-drop' }}
+                                            disabled={currentPageIndex <= 1}
+                                        >&larr;</button>
+                                        <div className="" style={{ display: 'flex', alignItems: 'center', fontSize: 18 }}>{currentPageIndex} of {totalPages} Pages</div>
+                                        <button
+                                            onClick={() => currentPageIndex < totalPages && displayPages(currentPageIndex + 1)}
+                                            style={{ cursor: currentPageIndex < totalPages ? 'pointer' : 'no-drop' }}
+                                            disabled={currentPageIndex >= totalPages}
+                                        >&rarr;</button>
+                                    </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
