@@ -16,8 +16,8 @@ export const AuthProvider = ({ children }) => {
         return (localStorage.setItem('token', serverToken));
     }
 
-    // const API =  'https://indiancoder.onrender.com';
-    const API = 'http://localhost:5000'
+    const API =  'https://indiancoder.onrender.com';
+    // const API = 'http://localhost:5000'
     // console.log(API)
 
     let isLoggedIn = !!token
