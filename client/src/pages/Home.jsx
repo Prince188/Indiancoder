@@ -31,7 +31,7 @@ export const Home = () => {
                 </div>
             </div>
             {/* Analytic Section */}
-            <Analytics />
+{/*             <Analytics /> */}
             {/* Benifit Section */}
             <div className="home-benifit main">
                 <div className="benifit-header">
