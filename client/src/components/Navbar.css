@@ -3,16 +3,19 @@
 }
 
 header {
-    /* z-index: 1; */
+    z-index: 999;
+    /* display: flex; */
     position: sticky;
-    width: 200px;
-    height: 100%;
-    /* top: 0; */
-    /* background-color: red; */
-    padding: 0 3rem 0 0rem;
-    background-color: #202020;
+    width: 100% !important;
+    height: 81px;
+    top: 0;
+    display: flex;
+    align-items: center;
+    padding: 16px 60px;
+    background-color: #121212;
     transition: 0.4s;
     /* z-index: 2; */
+    border-bottom: 1px solid #9754cb;
 }
 
 .logo-brand {
@@ -28,17 +31,21 @@ header {
 
 header .container {
     display: flex;
-    flex-direction: column;
+    padding: 0;
+    /* flex-direction: column; */
     /* max-width: 140rem; */
-    /* align-items: center; */
+    width: 100%;
+    align-items: center;
     /* padding: 1rem 2.4rem; */
     justify-content: space-between;
 }
 
 ul {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    /* background-color: red; */
+    height: 45px;
+    /* flex-direction: column; */
+    gap: 5px;
 }
 
 li {
@@ -49,28 +56,37 @@ li {
 }
 
 li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 16px;
-    padding: 0 15px;
+    padding: 12px 10px;
     display: flex;
     gap: 10px;
-    height: 40px;
+    height: 45px;
     align-items: center;
     text-decoration: none;
-    transition: 0.4s;
+    transition: 0.2s;
+    border-radius: 6px;
+    /* background-color: red; */
 }
 
 .icon {
     font-size: 16px;
-    transition: 0.4s;
+    /* transition: 0.2s; */
 }
 
 nav ul li a:hover,
 ul li a.active {
-    background-color: #121212;
-    height: 40px;
-    width: 145%;
-    border-radius: 1rem;
-    color: #deacf5;
+    background-color: #9754cb;
+    height: 45px;
+    border-radius: 6px;
+    color: #fff;
+}
+
+ul li #logout:hover,
+ul li #logout.active {
+    background-color: red !important;
 }
 
 @media screen and (max-width: 480px) {

@@ -15,34 +15,34 @@ import { AdminUsers } from './pages/AdminUsers'
 import { AdminContacts } from './pages/AdminContacts'
 import { Profile } from './pages/Profile'
 import Singleservice from './pages/Singleservice'
+import { Cart } from './pages/Cart'
 
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div className='app'>
-        <div className='app-1'>
-          <Navbar />
-        </div>
-        <div className='app-2' >
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/contact' element={<Contact />} />
-            <Route path='/service' element={<Service />} />
-            <Route path='/register' element={<Register />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/logout' element={<Logout />} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/Singleservice/:id' element={<Singleservice />} />
-            <Route path='*' element={<Error />} />
-            <Route path='/admin' element={<AdminLayout />} >
-              <Route path='users' element={<AdminUsers />} />
-              <Route path='contact' element={<AdminContacts />} />
-            </Route>
-          </Routes>
-          <Footer />
-        </div>
+      <div className="app">
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/service' element={<Service />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/logout' element={<Logout />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/Singleservice/:id' element={<Singleservice />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='*' element={<Error />} />
+          <Route path='/admin' element={<AdminLayout />} >
+            <Route path='users' element={<AdminUsers />} />
+            <Route path='contact' element={<AdminContacts />} />
+          </Route>
+        </Routes>
+      </div>
+      <div className="app1">
+        <Footer />
       </div>
     </BrowserRouter>
   )

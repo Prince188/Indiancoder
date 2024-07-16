@@ -1,30 +1,35 @@
 // import { useEffect, useState } from "react";
 
+import { useAuth } from "../store/auth"
+
 export const Analytics = () => {
 
+    const {services} = useAuth()
 
     return (
-        <>
-            <section className="section-analytics">
-                <div className="container grid grid-four-cols">
-                    <div className="div1">
-                        <h2>100,000+</h2>
-                        <p>Happy Users</p>
+        <div className="main">
+            <div className="analytics-banner">
+                {/* <div className="grid grid-four-cols"> */}
+                    <div className="brand">
+                        <img src="/images/logo.png" alt="" />
                     </div>
-                    <div className="div1">
-                        <h2>50+</h2>
-                        <p>Registered Companies</p>
+                    <div className="brand">
+                        <img src="/images/logo (1).png" alt="" />
                     </div>
-                    <div className="div1">
-                        <h2>500+</h2>
-                        <p>Well Known Developers</p>
+                    <div className="brand">
+                        <img src="/images/logo (2).png" alt="" />
                     </div>
-                    <div className="div1">
-                        <h2>24/7</h2>
-                        <p>Active Developers</p>
+                    <div className="brand">
+                        <img src="/images/logo (3).png" alt="" />
                     </div>
-                </div>
-            </section>
-        </>
+                    <div className="brand">
+                        <img src="/images/logo (6).png" alt="" />
+                    </div>
+                    <div className="brand">
+                        <img src="/images/logo (5).png" alt="" />
+                    </div>
+                {/* </div> */}
+            </div>
+        </div>
     )
 }

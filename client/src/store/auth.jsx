@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Service } from "../pages/Service";
 // import axios from "axios";
 
 export const AuthContext = createContext()
@@ -9,6 +8,7 @@ export const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(localStorage.getItem('token'))
     const [user, setUser] = useState("")
     const [services, setServices] = useState([])
+    const [wishlist, setWishlist] = useState([])
     const authorizationToken = `Bearer ${token}`
 
     const storeTokenInLS = (serverToken) => {
@@ -16,8 +16,8 @@ export const AuthProvider = ({ children }) => {
         return (localStorage.setItem('token', serverToken));
     }
 
-    const API =  'https://indiancoder.onrender.com';
-    // const API = 'http://localhost:5000'
+    // const API =  'https://indiancoder.onrender.com';
+    const API = 'http://localhost:5000'
     // console.log(API)
 
     let isLoggedIn = !!token
@@ -45,7 +45,6 @@ export const AuthProvider = ({ children }) => {
                     'Authorization': authorizationToken,
                 }
             })
-
             if (response.ok) {
                 const data = await response.json()
                 setUser(data.userData)
@@ -77,6 +76,29 @@ export const AuthProvider = ({ children }) => {
         }
     }
 
+    // get wishlist
+
+    const getWishlist = async () => {
+        try {
+            const response = await fetch(`${API}/api/data/wishlist`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            if (response.ok) {
+                const wishData = await response.json();
+                console.log("wishlist data:", wishData.msg); // Check the structure of wishData.msg
+                setWishlist(wishData.msg); // Assuming setWishlist updates state correctly
+            } else {
+                console.error('Failed to fetch wishlist:', response.status);
+            }
+        } catch (error) {
+            console.error('Error fetching wishlist:', error);
+        }
+    };
+
     useEffect(() => {
         if (token) {
             userAuthantication(token)
@@ -88,7 +110,7 @@ export const AuthProvider = ({ children }) => {
 
 
     return (<>
-        <AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user, services, authorizationToken, getServices, API }}>
+        <AuthContext.Provider value={{ isLoggedIn, storeTokenInLS, LogoutUser, user, services, authorizationToken, getServices, API , wishlist , getWishlist }}>
             {children}
         </AuthContext.Provider>
     </>)

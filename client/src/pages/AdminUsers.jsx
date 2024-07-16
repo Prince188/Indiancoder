@@ -176,23 +176,25 @@ export const AdminUsers = () => {
             </div>
             {
                 modal && (
-                    <div className="modal">
-                        <form onSubmit={handleSubmit}>
-                            <label htmlFor="username">Name</label>
-                            <input type="text" id="username" name="username" value={currentUser.username} onChange={handleChange} autoComplete="off" />
-                            <label htmlFor="email">Email</label>
-                            <input type="email" id="email" name="email" value={currentUser.email} onChange={handleChange} autoComplete="off" />
-                            <label htmlFor="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone" value={currentUser.phone} onChange={handleChange} autoComplete="off" />
-                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                <input type="checkbox" id="isAdmin" name="isAdmin" checked={currentUser.isAdmin} onChange={handleChange} style={{ width: 20, margin: '0 5px' }} />
-                                <label htmlFor="isAdmin" className="isAdmin">Admin</label>
-                            </div>
-                            <div className="btn-group">
-                                <button type="submit">Update</button>
-                                <button type="button" onClick={() => setModal(false)}>Close</button>
-                            </div>
-                        </form>
+                    <div className="modal-overlay">
+                        <div className="modal">
+                            <form onSubmit={handleSubmit}>
+                                <label htmlFor="username">Name</label>
+                                <input type="text" id="username" name="username" value={currentUser.username} onChange={handleChange} autoComplete="off" />
+                                <label htmlFor="email">Email</label>
+                                <input type="email" id="email" name="email" value={currentUser.email} onChange={handleChange} autoComplete="off" />
+                                <label htmlFor="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" value={currentUser.phone} onChange={handleChange} autoComplete="off" />
+                                <div style={{ display: 'flex', alignItems: 'center' }}>
+                                    <input type="checkbox" id="isAdmin" name="isAdmin" checked={currentUser.isAdmin} onChange={handleChange} style={{ width: 20, margin: '0 5px' }} />
+                                    <label htmlFor="isAdmin" className="isAdmin">Admin</label>
+                                </div>
+                                <div className="btn-group">
+                                    <button type="submit">Update</button>
+                                    <button type="button" onClick={() => setModal(false)}>Close</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 )
             }

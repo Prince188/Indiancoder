@@ -1,0 +1,79 @@
+.about-section{
+    margin: 3rem;
+}
+
+.about-head{
+    display: flex;
+    gap: 80px;
+    padding: 40px 60px;
+    border-bottom: 1px solid #fff;
+    padding-top: 0;
+}
+
+.about-title{
+    width: 600px;
+    font-size: 38px;
+}
+
+.about-desc{
+    line-height: 150%;
+    width: 600px;
+    color: #ffffffcc;
+    font-size: 16px;
+}
+
+.about-achive{
+    display: flex;
+    flex-direction: column;
+    margin: 3rem;
+    gap: 50px;
+}
+
+.achi-head{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.head-title{
+    font-size: 30px;
+}
+
+.head-desc{
+    color: #ffffffcc;
+    font-size: 16px;
+}
+
+.achi-cards{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.achi-card{
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #242424;
+}
+
+.card-tit{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 24px;
+
+    & span{
+        color: #000;
+        background-color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+    }
+}
+
+.card-desc{
+    font-size: 16px;
+    color: #ffffffaa;
+}

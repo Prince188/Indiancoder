@@ -9,16 +9,18 @@ import { SlMenu } from "react-icons/sl";
 export const Navbar = () => {
     const { isLoggedIn, user } = useAuth();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const toggleMenu2=() =>{
-        if(window.innerWidth > 480){
+    const toggleMenu2 = () => {
+        if (window.innerWidth > 480) {
             setIsMenuOpen(true)
         }
-        else{
+        else {
             setIsMenuOpen(false);
         }
     }
@@ -54,38 +56,68 @@ export const Navbar = () => {
         }
     }, [isMenuOpen]);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const isScrolled = window.scrollY > 0;
+            setScrolled(isScrolled);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
-        <header>
-            <div className="container">
-                <div className="logo-brand">
-                    <div className="logo"><NavLink to="/">Indian Coder</NavLink></div>
-                    <li className="menu" onClick={toggleMenu}><SlMenu size={18} /></li>
-                </div>
-                <nav>
-                    <ul>
-                        {isLoggedIn ?
-                            (<>
-                                <li onClick={toggleMenu2}><NavLink to="/"> <IoHomeOutline size={18} /> <span className='icon'>Home</span></NavLink></li>
-                                <li onClick={toggleMenu2}><NavLink to="/about"> <IoInformationCircleOutline size={18} /> <span className="icon">About</span></NavLink></li>
-                                <li onClick={toggleMenu2}><NavLink to="/service"> <IoBookOutline size={18} /><span className="icon">Courses</span></NavLink></li>
-                                <li onClick={toggleMenu2}><NavLink to="/contact"><IoCallOutline size={18} /><span className="icon">Contact</span></NavLink></li>
-                                <li onClick={toggleMenu2}><NavLink to="/logout"><IoLogOutOutline size={18} /><span className="icon">Logout</span></NavLink></li>
-                            </>)
-                            : (<>
-                                {/* <li><NavLink to="/register">Register</NavLink></li> */}
-                                <li><NavLink to="/login"><IoLogInOutline size={18} /><span className="icon">Login</span></NavLink></li>
-                            </>)
+        <>
+            {/* <div className="ads" style={{margin : 'auto'}}>
+                Free Courses Available. <NavLink>Get it Now &rarr;</NavLink>
+            </div> */}
+            <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+                <div className="container">
+                    <div className="nav-cont" style={{ display: 'flex', gap: '50px' }}>
+                        <div className="logo-brand">
+                            <div className="logo"><NavLink to="/">Indian Coder</NavLink></div>
+                            <li className="menu" onClick={toggleMenu}><SlMenu size={18} /></li>
+                        </div>
+                        <nav>
+                            <ul>
+                                {isLoggedIn ?
+                                    (<>
+                                        <li onClick={toggleMenu2}><NavLink to="/"> <IoHomeOutline size={18} /> <span className='icon'>Home</span></NavLink></li>
+                                        <li onClick={toggleMenu2}><NavLink to="/about"> <IoInformationCircleOutline size={18} /> <span className="icon">About</span></NavLink></li>
+                                        <li onClick={toggleMenu2}><NavLink to="/service"> <IoBookOutline size={18} /><span className="icon">Courses</span></NavLink></li>
+                                        <li onClick={toggleMenu2}><NavLink to="/contact"><IoCallOutline size={18} /><span className="icon">Contact</span></NavLink></li>
+                                    </>)
+                                    : (<>
+                                        {/* <li><NavLink to="/register">Register</NavLink></li> */}
+                                        <li><NavLink to="/login"><IoLogInOutline size={18} /><span className="icon">Login</span></NavLink></li>
+                                    </>)
+                                }
+                                {user.isAdmin ? (
+                                    <>
+                                        {/* <li><NavLink to="/profile">Profile</NavLink></li> */}
+                                        <li><NavLink to="/admin"><MdOutlineAdminPanelSettings size={18} /><span className="icon">Admin</span></NavLink></li>
+                                    </>
+                                ) : ("")}
+                            </ul>
+                        </nav>
+
+                    </div>
+                    <nav>
+                        {
+                            isLoggedIn ?
+                                (
+                                    <ul>
+                                        <li onClick={toggleMenu2} id='logout'><NavLink to="/logout"><IoLogOutOutline size={18} /><span className="icon">Logout</span></NavLink></li>
+                                    </ul>
+                                ) :
+                                ("")
                         }
-                        {user.isAdmin ? (
-                            <>
-                                {/* <li><NavLink to="/profile">Profile</NavLink></li> */}
-                                <li><NavLink to="/admin"><MdOutlineAdminPanelSettings size={18} /><span className="icon">Admin</span></NavLink></li>
-                            </>
-                        ) : ("")}
-                    </ul>
-                </nav>
-            </div>
-        </header>
+                    </nav>
+                </div>
+            </header>
+        </>
     );
 };
