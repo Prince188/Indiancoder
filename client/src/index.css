@@ -383,31 +383,6 @@ table tbody tr:last-child td:first-child {
   -webkit-box-orient: vertical;
 }
 
-dl {
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
-}
-
-dt {
-  font-weight: bold;
-
-  & h2 {
-    height: 30px !important;
-    text-decoration: underline;
-    color: #deacf5;
-    font-weight: 800 !important;
-  }
-}
-
-dd {
-  flex-basis: 50%;
-  /* Adjust the width of <dd> as per your design */
-  margin-left: 0;
-  padding-left: 50px;
-  /* Add left padding for indentation */
-}
-
 .source-code {
   overflow: auto;
   background-color: #232323;
@@ -633,7 +608,7 @@ li {
 /*? Analytics css */
 
 .analytics-banner {
-  background-color: #9754cb;
+  background-color: #fff;
   width: 100%;
   border-radius: 8px;
   padding: 24px;
@@ -647,7 +622,7 @@ li {
   justify-content: center;
   height: 68px;
   padding: 20px 30px;
-  border-right: 1px solid #fff;
+  border-right: 1px solid #000;
 }
 
 .brand:last-child {
@@ -656,5 +631,5 @@ li {
 
 .brand img {
   color: #fff;
-  mix-blend-mode: color-burn;
+  /* mix-blend-mode: color-burn; */
 }
