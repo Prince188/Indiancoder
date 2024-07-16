@@ -1,40 +1,46 @@
-const {Schema , model} = require("mongoose")
+const { Schema, model } = require("mongoose")
 
 const serviceSchema = new Schema({
-    service:{
-        type : String , 
+    service: {
+        type: String,
         required: true
     },
-    description:{
-        type : String , 
+    description: {
+        type: String,
         required: true
     },
-    price : {
-        type : String , 
+    price: {
+        type: String,
         // required: true
     },
-    provider:{
-        type : String , 
+    provider: {
+        type: String,
         required: true
     },
-    link:{
-        type : String , 
+    link: {
+        type: String,
         // required: true
     },
-    source:{
-        type : [String] ,
+    source: {
+        type: [String],
     },
     category: {
-        type :String,
-        enum : ['Projects' , 'Topics' , 'Solved questions']
+        type: String,
+        enum: ['Projects', 'Topics', 'Solved questions'],
+        required: false
     },
-    pic:{
-        type : String,
+    curri:{
+        type: [String],
+        required: false
+    },
+    pic: {
+        type: String,
+        required: false
     }
-},{
-    timestamps : true,
+}, {
+    timestamps: true,
 })
 
-const Service = new model('Service' , serviceSchema)
+const Service = new model('Service', serviceSchema)
 
 module.exports = Service;

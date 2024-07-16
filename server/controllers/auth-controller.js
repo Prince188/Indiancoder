@@ -26,7 +26,7 @@ const register = async (req, res) => {
             res.status(400).json({ msg: "User already exists with this email" })
         } else {
             const salt = 10
-            const hash_password = await bcrypt.hash(password, 10)
+            const hash_password = await bcrypt.hash(password, salt)
             const userCreated = await User.create({ username, email, phone, password: hash_password })
 
             res.status(200)
@@ -51,7 +51,7 @@ const login = async (req, res) => {
         const { email, password } = req.body
         const userExist = await User.findOne({ email: email })
         if (!userExist) {
-            res.status(400).json({ msg: "User does not exists with this email" })
+            res.status(400).json({ msg: "User does not exists with this Credentials     " })
         } else {
             const isMatch = await bcrypt.compare(password, userExist.password)
             if (!isMatch) {
@@ -60,7 +60,7 @@ const login = async (req, res) => {
                 res.status(200)
                     .json({
                         msg: "Logged in successfully",
-                        token: await userExist.generateToken(),
+                        token: await userExist.generateToken(), 
                         userId: userExist._id.toString(),
                     })
                     .send('login router')

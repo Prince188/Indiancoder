@@ -1,7 +1,7 @@
 const Service = require('../models/service-model')
+const Wishlist = require('../models/wishlist-model')
 
 const services = async (req, res) => {
-
     try {
         
         const response = await Service.find()
@@ -64,4 +64,7 @@ const servicesForUpdate = async (req, res) => {
     }
 }
 
-module.exports = { services, singleservices, servicesForm, servicesFormDelete, servicesForUpdate }
+
+
+
+module.exports = { services, singleservices, servicesForm, servicesFormDelete, servicesForUpdate  }
