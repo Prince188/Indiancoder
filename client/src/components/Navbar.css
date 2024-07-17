@@ -103,7 +103,7 @@ ul li #logout.active {
 
     .menu {
         padding: 0 8px;
-        display: flex;
+        display: none;
     }
 
     ul {

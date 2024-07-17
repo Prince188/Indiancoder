@@ -1,8 +1,8 @@
-.about-section{
+.about-section {
     margin: 3rem;
 }
 
-.about-head{
+.about-head {
     display: flex;
     gap: 80px;
     padding: 40px 60px;
@@ -10,47 +10,47 @@
     padding-top: 0;
 }
 
-.about-title{
+.about-title {
     width: 600px;
     font-size: 38px;
 }
 
-.about-desc{
+.about-desc {
     line-height: 150%;
     width: 600px;
     color: #ffffffcc;
     font-size: 16px;
 }
 
-.about-achive{
+.about-achive {
     display: flex;
     flex-direction: column;
     margin: 3rem;
     gap: 50px;
 }
 
-.achi-head{
+.achi-head {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.head-title{
+.head-title {
     font-size: 30px;
 }
 
-.head-desc{
+.head-desc {
     color: #ffffffcc;
     font-size: 16px;
 }
 
-.achi-cards{
+.achi-cards {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
-.achi-card{
+.achi-card {
     gap: 8px;
     display: flex;
     flex-direction: column;
@@ -59,13 +59,13 @@
     background-color: #242424;
 }
 
-.card-tit{
+.card-tit {
     display: flex;
     align-items: center;
     gap: 15px;
     font-size: 24px;
 
-    & span{
+    & span {
         color: #000;
         background-color: #fff;
         padding: 5px;
@@ -73,7 +73,90 @@
     }
 }
 
-.card-desc{
+.card-desc {
     font-size: 16px;
     color: #ffffffaa;
+}
+
+@media (max-width: 480px) {
+    .about-section {
+        margin: 3rem 0;
+    }
+
+    .about-head {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 0px 0px;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 30px;
+    }
+
+    .about-title {
+        width: 80%;
+        font-size: 38px;
+    }
+
+    .about-desc {
+        /* line-height: 150%; */
+        width: 80%;
+        color: #ffffffcc;
+        font-size: 14px;
+    }
+
+    .about-achive {
+        display: flex;
+        flex-direction: column;
+        margin: 3rem 0;
+        gap: 50px;
+    }
+
+    .achi-head {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .head-title {
+        font-size: 30px;
+    }
+
+    .head-desc {
+        color: #ffffffcc;
+        font-size: 16px;
+    }
+
+    .achi-cards {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 20px;
+    }
+
+    .achi-card {
+        gap: 8px;
+        display: flex;
+        flex-direction: column;
+        padding: 30px;
+        border-radius: 10px;
+        background-color: #242424;
+    }
+
+    .card-tit {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        font-size: 24px;
+
+        & span {
+            color: #000;
+            background-color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    }
+
+    .card-desc {
+        font-size: 16px;
+        color: #ffffffaa;
+    }
 }

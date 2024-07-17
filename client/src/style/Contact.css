@@ -1,8 +1,8 @@
-.contact-section{
+.contact-section {
     margin: 3rem;
 }
 
-.contact-head{
+.contact-head {
     border-bottom: 1px solid #fff;
     display: flex;
     gap: 80px;
@@ -10,40 +10,95 @@
     padding-top: 0
 }
 
-.contact-tit{
+.contact-tit {
     width: 600px;
     font-size: 38px;
 }
 
-.contact-desc{
+.contact-desc {
     width: 600px;
     font-size: 16px;
     color: #ffffffcc;
 }
 
-.contact-form{
+.contact-form {
     background-color: #242424;
     padding: 24px;
     border-radius: 12px;
     margin: 3rem;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
-.social-connect{
+.social-connect {
     display: flex;
     flex-direction: column;
     gap: 50px;
 }
 
-.social-cont{
+.social-cont {
     display: flex;
     flex-direction: column;
 }
 
-.cont{
+.cont {
     display: flex;
     align-items: center;
     gap: 10px;
     height: 60px;
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        margin: 3rem 0;
+    }
+
+    .contact-head {
+        border-bottom: 1px solid #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+        padding-bottom: 30px;
+        padding-top: 0
+    }
+
+    .contact-tit {
+        width: 90%;
+        font-size: 28px;
+    }
+
+    .contact-desc {
+        width: 90%;
+        font-size: 16px;
+        color: #ffffffcc;
+    }
+
+    .contact-form {
+        background-color: #242424;
+        padding: 24px;
+        border-radius: 12px;
+        margin: 3rem 0;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .social-connect {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .social-cont {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cont {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        height: 60px;
+    }
 }
