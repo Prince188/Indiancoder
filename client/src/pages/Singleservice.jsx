@@ -1,16 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import '../style/Singleservice.css'
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { MdDelete, MdEdit, MdSave, MdCancel } from "react-icons/md";
-import { useScrollPosition } from "../components/useScrollPosition";
 import { Service } from "./Service";
-import YouTube from "react-youtube";
-// import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-// import {Snippet} from "@nextui-org/snippet";
 
 const Singleservice = () => {
     const { id } = useParams();
@@ -19,10 +15,7 @@ const Singleservice = () => {
     const [newSource, setNewSource] = useState("");
     const [editedSource, setEditedSource] = useState("");
     const [editingIndex, setEditingIndex] = useState(null);
-    const navigate = useNavigate()
-    const scrollPosition = useScrollPosition();
     const [player, setPlayer] = useState(null);
-    const playerRef = useRef(null);
     const [newCurriculum, setNewCurriculum] = useState("");
     // const [curriculums, setCurriculums] = useState([]);
 
@@ -203,13 +196,6 @@ const Singleservice = () => {
         }
     };
 
-    const handleBack = () => {
-        navigate(-1);
-        setTimeout(() => {
-            window.scrollTo(0, scrollPosition);
-        }, 0);
-    };
-
     if (!curElem) {
         return <p>Loading...</p>;
     }
@@ -248,13 +234,13 @@ const Singleservice = () => {
                 </div>
                 {/* //? Video andcurriculam */}
                 <div className="single-video">
-                    <div className="">
+                    {/* <div className="">
                         <YouTube
-                            videoId='xZ9ge6QTIZQ'
+                            videoId='Az4SZ4miZircmqqu'
                             onReady={onReady}
                             ref={playerRef}
                         />
-                    </div>
+                    </div> */}
                     {/* //? CURRICULAM */}
                     <div className="curri">
                         <div style={{ fontSize: '2.5rem' }}>Topics:</div>

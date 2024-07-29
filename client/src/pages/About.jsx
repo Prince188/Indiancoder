@@ -5,8 +5,12 @@ import { AiFillAlert } from "react-icons/ai";
 import { GiUpgrade } from "react-icons/gi";
 import { useState } from "react"
 import '../style/About.css'
+import useScrollToTop from '../components/useScrollToTop';
+
 
 export const About = () => {
+    useScrollToTop();
+
 
     const [about, setAbout] = useState({
         username: "",

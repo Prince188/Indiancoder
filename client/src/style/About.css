@@ -64,13 +64,13 @@
     align-items: center;
     gap: 15px;
     font-size: 24px;
+}
 
-    & span {
-        color: #000;
-        background-color: #fff;
-        padding: 5px;
-        border-radius: 5px;
-    }
+.card-tit span {
+    color: #000;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .card-desc {
@@ -84,10 +84,9 @@
     }
 
     .about-head {
-        display: flex;
         flex-direction: column;
         gap: 16px;
-        padding: 0px 0px;
+        padding: 0;
         border-bottom: 1px solid #fff;
         padding-bottom: 30px;
     }
@@ -98,65 +97,53 @@
     }
 
     .about-desc {
-        /* line-height: 150%; */
-        width: 80%;
-        color: #ffffffcc;
+        width: 99%;
         font-size: 14px;
     }
 
     .about-achive {
-        display: flex;
-        flex-direction: column;
         margin: 3rem 0;
-        gap: 50px;
-    }
-
-    .achi-head {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-    }
-
-    .head-title {
-        font-size: 30px;
-    }
-
-    .head-desc {
-        color: #ffffffcc;
-        font-size: 16px;
     }
 
     .achi-cards {
-        display: grid;
         grid-template-columns: repeat(1, 1fr);
-        gap: 20px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+    .about-section {
+        margin: 3rem 0;
     }
 
-    .achi-card {
-        gap: 8px;
-        display: flex;
+    .about-head {
         flex-direction: column;
-        padding: 30px;
-        border-radius: 10px;
-        background-color: #242424;
+        gap: 16px;
+        padding: 0;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 30px;
     }
 
-    .card-tit {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        font-size: 24px;
-
-        & span {
-            color: #000;
-            background-color: #fff;
-            padding: 5px;
-            border-radius: 5px;
-        }
+    .about-title {
+        width: 80%;
+        font-size: 38px;
     }
 
-    .card-desc {
-        font-size: 16px;
-        color: #ffffffaa;
+    .about-desc {
+        width: 99%;
+        font-size: 14px;
+    }
+
+    .about-achive {
+        margin: 3rem 0;
+    }
+
+    .achi-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 561px) {
+    .achi-cards {
+        grid-template-columns: repeat(1, 1fr);
     }
 }

@@ -7,7 +7,7 @@
     display: flex;
     gap: 80px;
     padding: 40px 60px;
-    padding-top: 0
+    padding-top: 0;
 }
 
 .contact-tit {
@@ -27,6 +27,7 @@
     border-radius: 12px;
     margin: 3rem;
     display: grid;
+    gap: 30px;
     grid-template-columns: repeat(2, 1fr);
 }
 
@@ -48,19 +49,16 @@
     height: 60px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 1024px) {
     .contact-section {
         margin: 3rem 0;
     }
 
     .contact-head {
-        border-bottom: 1px solid #fff;
-        display: flex;
         flex-direction: column;
         gap: 20px;
         padding: 0;
         padding-bottom: 30px;
-        padding-top: 0
     }
 
     .contact-tit {
@@ -71,34 +69,11 @@
     .contact-desc {
         width: 90%;
         font-size: 16px;
-        color: #ffffffcc;
     }
 
     .contact-form {
-        background-color: #242424;
-        padding: 24px;
-        border-radius: 12px;
         margin: 3rem 0;
-        display: grid;
         gap: 20px;
         grid-template-columns: repeat(1, 1fr);
-    }
-
-    .social-connect {
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-    }
-
-    .social-cont {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .cont {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        height: 60px;
     }
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../store/auth';
+import '../style/Admin.css'
 
 export const AdminContacts = () => {
     var no = 1
@@ -32,7 +33,7 @@ export const AdminContacts = () => {
     return (
         <div className=''>
             <h2 style={{ fontSize: '3.5rem' }}>Manage Contacts</h2>
-            <div className="container">
+            <div className="table-container">
                 <table  border={0}>
                     <thead>
                         <tr>

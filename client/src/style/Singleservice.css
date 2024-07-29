@@ -32,11 +32,11 @@
     margin: 3rem;
     display: flex;
     gap: 25px;
+}
 
-    & iframe {
-        width: 700px;
-        aspect-ratio: 16/9;
-    }
+.single-video iframe {
+    width: 700px;
+    aspect-ratio: 16/9;
 }
 
 .curri {
@@ -54,12 +54,11 @@
     background-color: #303030;
     box-shadow: 0 0 5px #121212;
     color: #fff;
-    border-radius: 5px;
     padding: 20px;
     width: 100%;
     display: flex;
-    border-radius: 8px;
     gap: 8px;
+    border-radius: 8px;
 }
 
 .curri-text {
@@ -74,7 +73,6 @@
     height: 100%;
     padding: 2px;
     border-radius: 5px;
-    /* box-shadow: inset 0px 0px 10px #000; */
 }
 
 .curri-btn {
@@ -95,7 +93,6 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    justify-content: space-between;
 }
 
 .code {
@@ -104,6 +101,7 @@
     padding: 20px;
 }
 
+/* Mobile Styles */
 @media (max-width: 480px) {
     .single-section {
         margin: 3rem 0;
@@ -111,105 +109,85 @@
 
     .single-head {
         padding: 30px 0;
-        display: flex;
         flex-direction: column;
         gap: 30px;
-        border-bottom: 1px solid var(--btn-color);
+    }
+
+    .single-title, .single-desc {
+        width: 90%;
     }
 
     .single-title {
         font-size: 28px;
-        width: 90%;
     }
 
     .single-desc {
         font-size: 14px;
-        width: 90%;
-        color: #ffffffcc;
-        display: -webkit-box;
-        line-height: 20px;
-        height: 120px;
-        margin-bottom: 1.2rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 6;
-        -webkit-box-orient: vertical;
     }
 
     .single-video {
         margin: 3rem 0;
-        display: flex;
         flex-direction: column;
-        gap: 25px;
-
-        & iframe {
-            width: 100%;
-            aspect-ratio: 16/9;
-        }
     }
 
-    .curri {
-        display: flex;
+    .single-video iframe {
         width: 100%;
-        flex-direction: column;
-        gap: 15px;
-        height: 360px;
-        background-color: #242424;
-        padding: 10px;
-        border-radius: 8px;
     }
 
-    .curri-card {
-        background-color: #303030;
-        box-shadow: 0 0 5px #121212;
-        color: #fff;
-        border-radius: 5px;
-        padding: 20px;
+    .curri, .curri-card {
         width: 100%;
-        display: flex;
-        border-radius: 8px;
-        gap: 8px;
-    }
-
-    .curri-text {
-        height: max-content;
-    }
-
-    .curri-cards {
-        display: flex;
-        gap: 8px;
-        flex-direction: column;
-        overflow: auto;
-        height: 100%;
-        padding: 2px;
-        border-radius: 5px;
-        /* box-shadow: inset 0px 0px 10px #000; */
-    }
-
-    .curri-btn {
-        width: 100px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        padding: 5px;
-        border-radius: 5px;
-    }
-
-    .single-source {
-        margin: 3rem 0;
     }
 
     .code-panels {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 10px;
-        justify-content: space-between;
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Tablet Styles */
+@media (min-width: 481px) and (max-width: 1024px) {
+    .single-section {
+        margin: 3rem 0;
     }
 
-    .code {
-        background-color: #242424;
-        border-radius: 8px;
-        padding: 20px;
+    .single-head {
+        padding: 30px 0;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .single-title, .single-desc {
+        width: 90%;
+    }
+
+    .single-title {
+        font-size: 28px;
+    }
+
+    .single-desc {
+        font-size: 14px;
+    }
+
+    .single-video {
+        margin: 3rem 0;
+        flex-direction: column;
+    }
+
+    .single-video iframe {
+        width: 100%;
+    }
+
+    .curri, .curri-card {
+        width: 100%;
+    }
+
+    .code-panels {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+    .code-panels {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

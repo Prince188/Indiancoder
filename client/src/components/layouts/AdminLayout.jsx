@@ -4,6 +4,7 @@ import { FaUser } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6"
 import { useAuth } from '../../store/auth';
 import { toast } from 'react-toastify';
+import '../../style/Admin.css'
 
 export const AdminLayout = () => {
     const { user } = useAuth()

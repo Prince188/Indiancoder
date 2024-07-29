@@ -4,9 +4,13 @@ import { Analytics } from '../components/Analytics'
 import '../style/Home.css'
 import { useAuth } from '../store/auth';
 import { BsLightningChargeFill } from "react-icons/bs";
+import { useEffect } from 'react';
+import useScrollToTop from '../components/useScrollToTop';
 
 
 export const Home = () => {
+    useScrollToTop();
+
 
     const { isLoggedIn, services } = useAuth()
 
@@ -14,12 +18,13 @@ export const Home = () => {
         return <Navigate to='/login' />;
     }
 
+
     return (
-        <>
+        <div>
             <div className="home-banner">
                 <div className="banner-1">
                     <div className='banner-head'>
-                        <span style={{backgroundColor : '#000' , borderRadius : 5 , color : '#9754cb' , padding : 5}}><BsLightningChargeFill size={48} /></span> Unlock Your Creative Potential
+                        <span style={{ backgroundColor: '#000', borderRadius: 5, color: '#9754cb', padding: 5 }}><BsLightningChargeFill size={48} /></span> Unlock Your Creative Potential
                     </div>
                     <div className='banner-body'>
                         With Prince's provided solutions
@@ -132,6 +137,6 @@ export const Home = () => {
                     })()}
                 </div>
             </div>
-        </>
+        </div>
     )
 }

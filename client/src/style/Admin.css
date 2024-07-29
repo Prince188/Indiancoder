@@ -1,0 +1,33 @@
+.table-container {
+    /* background-color: red; */
+    overflow: scroll;
+}
+
+table {
+    color: #000;
+}
+
+table thead tr th {
+    background-color: white;
+}
+
+table tbody tr {
+    background-color: white;
+    margin: 2px;
+    height: 50px;
+}
+
+table tbody tr td {
+    width: 300px;
+    height: 70px !important;
+}
+
+@media (max-width: 1024px) {
+    .table-container {
+        background-color: green;
+    }
+
+    .main {
+        padding: 0 20px !important;
+    }
+}

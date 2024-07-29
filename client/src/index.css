@@ -55,50 +55,6 @@ img:hover {
   transform: scale(1.1);
 }
 
-
-/* Analytics section */
-
-.section-analytics {
-  margin: 9.6rem 0;
-
-  & .container {
-    /* background-color: #9754cb; */
-    border-radius: 1rem;
-  }
-
-  & .grid {
-    color: #fff;
-    gap: 1rem;
-
-    & .div1 {
-      height: 100px;
-      border-radius: 1rem;
-      display: flex;
-      align-items: center;
-      background-color: #9754cb;
-      text-align: center;
-      border-right: 0.2rem solid var(--dark-color);
-
-
-      & p {
-        font-size: 1.8rem;
-      }
-    }
-
-    & .div1:last-child {
-      border-right: none;
-    }
-
-    & p {
-      text-transform: uppercase;
-    }
-
-    & h2 {
-      font-size: 3.5rem;
-    }
-  }
-}
-
 /* ERROR PAGE */
 
 .error {
@@ -116,141 +72,14 @@ img:hover {
   }
 }
 
-
-/* Service page */
-
-.card {
-  border: 2px solid #232323;
-  width: 100%;
-  background-color: #272727;
-  box-shadow: 0 0 10px rgba(14, 0, 0, 0.1);
-  padding: 1rem;
-  border-radius: 1.5rem;
-  transition: 0.5s;
-  position: relative;
-  height: 100%;
-}
-
-
-.card:hover .service-btn {
-  display: flex;
-}
-
-.card-img {
-  width: 100%;
-  /* height: 172px; */
-  display: flex;
-  border-radius: 1rem;
-  /* justify-content: center; */
-}
-
-.card-img img {
-  border-radius: 1rem;
-  aspect-ratio: 16/9;
-  width: 100%;
-}
-
-.card:hover {
-  transform: scale(1.01);
-  border-color: #deacf5;
-}
-
-.card img:hover {
-  transform: scale(1);
-}
-
-.price {
-  z-index: 1;
-  background-color: red;
-  height: 25px;
-  position: absolute;
-}
-
-.card-details .grid p {
-  line-height: 20px;
-  height: 40px;
-  width: 140%;
-  /* overflow: hidden; */
-  /* text-overflow: ellipsis; */
-  flex-wrap: wrap;
-  font-size: 1.5rem !important;
-  margin: 1rem 0 0.5rem 0;
-}
-
-.card h2 {
-  display: -webkit-box;
-  line-height: 28px;
-  height: 56px;
-  margin-bottom: 1.2rem;
-  font-size: 2.8rem;
-  font-weight: 500;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
-
-.card p {
-  /* color: white; */
-  height: 66px;
-  line-height: 22px;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-}
-
-.card p:last-child {
-  height: 22px;
-  line-height: 22px;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-}
-
-.p {
-  display: flex;
-  align-items: center;
-}
-
 /* table css */
-
-table {
-  /* border: 1px solid #9754cb; */
-  border-radius: 1.2rem;
-  width: 100%;
-  color: #242424;
-  /* background-color: white; */
-}
 
 
 table thead tr th {
-  /* background-color: red; */
-  /* border-bottom: 1px solid #9754cb; */
   font-size: 2.2rem;
-  background-color: white;
   height: 50px;
-
-  &:first-child {
-    border-top-left-radius: 1.2rem;
-  }
-
-  &:last-child {
-    border-top-right-radius: 1.2rem;
-  }
 }
 
-table tbody tr {
-  background-color: white;
-  margin: 2px 0;
-}
 
 table tbody tr td {
   text-align: center;
@@ -259,30 +88,6 @@ table tbody tr td {
   height: 50px;
   padding: 1rem;
   /* background-color: red; */
-}
-
-table tbody tr td:first-child {
-  text-align: center;
-  font-weight: 600;
-  font-size: 1.7rem;
-  height: 50px;
-  padding: 1rem;
-  width: 100px;
-  /* background-color: red; */
-}
-
-table tbody tr .msg {
-  /* background-color: red; */
-  width: 500px;
-  /* text-align: left; */
-}
-
-table tbody tr:last-child td:last-child {
-  border-bottom-right-radius: 1.2rem;
-}
-
-table tbody tr:last-child td:first-child {
-  border-bottom-left-radius: 1.2rem;
 }
 
 .modal-overlay {
@@ -304,8 +109,30 @@ table tbody tr:last-child td:first-child {
   border-radius: 8px;
   width: fit-content;
   max-width: 90%;
+  z-index: 10;
+  height: 560px;
+  overflow-y: scroll; /* Scroll vertically */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* Position relative for absolute positioning of children */
 }
+
+.scroll-indicator {
+  position: sticky; /* Absolute positioning inside the modal */
+  bottom: 0px; /*Adjust to fit inside the modal */
+  padding: 5px;
+  height: 30px;
+  aspect-ratio: 1;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  font-size: 2rem;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  z-index: 20; /* Ensure it appears above other content inside the modal */
+}
+
 
 
 .btn-group {
@@ -416,41 +243,6 @@ table tbody tr:last-child td:first-child {
   /* Optional: Add padding for better button visibility */
 }
 
-/* Pagination */
-
-.pagination {
-  /* Assuming .pagination is the container for your pagination component */
-  margin: auto;
-  color: white !important;
-}
-
-.pagination ul li button {
-  border-color: white;
-  font-size: 1.5rem;
-  color: #fff !important;
-  /* Ensure this overrides any default color */
-  background-color: #6237a0;
-  font-weight: 800 !important;
-
-}
-
-.pagination .Mui-selected {
-  background-color: #9754cb !important;
-  /* Apply red background to selected button */
-  color: #fff !important;
-  /* Ensure text is white on selected button */
-}
-
-.pagination ul li button:hover {
-  background-color: #9754cb !important;
-}
-
-.css-1scal0h-MuiPaginationItem-root {
-  color: white !important;
-  font-size: 2.3rem !important;
-}
-
-
 /* GLOBAL CSS */
 
 .container {
@@ -493,6 +285,7 @@ button {
   padding: 14px 20px;
   font-size: 1.7rem;
   font-weight: 500;
+  color: #fff;
   background-color: var(--btn-color);
   border-radius: 0.8rem;
   border: none;
@@ -543,7 +336,7 @@ form {
   select {
     padding: 0.5rem 0.5rem;
     display: flex;
-    width: 400px;
+    width: 100%;
     margin: 0.7rem 0;
     margin-top: 0;
     border: none;
@@ -633,3 +426,4 @@ li {
   color: #fff;
   /* mix-blend-mode: color-burn; */
 }
+

@@ -107,9 +107,9 @@ export const AdminUsers = () => {
 
     return (
         <>
-            <div className="">
+            <div className="table-parent">
                 <h2 style={{ fontSize: '3.5rem' }}>Manage Users</h2>
-                <div className="container">
+                <div className="table-container">
                     <table border={0}>
                         <thead>
                             <tr>

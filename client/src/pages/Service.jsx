@@ -18,7 +18,7 @@ export const Service = () => {
     const [image, setImage] = useState("");
     const [selectedOpt, setSelectedOpt] = useState("Select")
     const [searchBar, setSearchBar] = useState("")
-    const [wishlist, setWishlist] = useState([]);
+    const [showArrow, setShowArrow] = useState(true);
     const [serviceData, setServiceData] = useState({
         service: "",
         description: "",
@@ -40,7 +40,6 @@ export const Service = () => {
         pic: ""
     });
     console.log("services.length", services.length)
-    const countTotalRecord = 0
     const [currentPageIndex, setCurrentPageIndex] = useState()
 
     // const [totalPages, startPageIndex, endPageIndex, currentPageIndex, displayPages] = usePagination(6, totalRecord);
@@ -262,6 +261,21 @@ export const Service = () => {
         service.service.toLowerCase().includes(searchBar.toLowerCase())
     );
 
+    const handleScroll = (e) => {
+        const { scrollTop, scrollHeight, clientHeight } = e.target;
+        setShowArrow(scrollTop + clientHeight <( scrollHeight - 10));
+    };
+
+    useEffect(() => {
+        if (modal) {
+            const modalElement = document.querySelector('.modal');
+            modalElement.addEventListener('scroll', handleScroll);
+            return () => {
+                modalElement.removeEventListener('scroll', handleScroll);
+            };
+        }
+    }, [modal]);
+
     const totalRecord = filteredServices.length;
     const recordsPerPage = 6;
     const totalPages = Math.ceil(totalRecord / recordsPerPage);
@@ -290,9 +304,9 @@ export const Service = () => {
                             )
                         }
                     </div>
-                </div>
-                <div className="service-cards">
-                    {/* <div className="service-card">
+                    {/* </div> */}
+                    <div className="service-cards">
+                        {/* <div className="service-card">
                         <div className="service-header">
                             <div className="service-detail">
                                 <div className="service-name">
@@ -310,66 +324,67 @@ export const Service = () => {
                             <NavLink><button className="btn-outer">Learn More</button></NavLink>
                         </div>
                     </div> */}
-                    {
-                        filteredServices && filteredServices.length > 0 ? (
-                            filteredServices.slice(startIndex, endIndex).map((service, index) => (
-                                <div className="service-card" key={service._id}>
-                                    <div className="service-header">
-                                        <div className="service-detail">
-                                            <div className="service-name">
-                                                {service.service}
+                        {
+                            filteredServices && filteredServices.length > 0 ? (
+                                filteredServices.slice(startIndex, endIndex).map((service, index) => (
+                                    <div className="service-card" key={service._id}>
+                                        <div className="service-header">
+                                            <div className="service-detail">
+                                                <div className="service-name">
+                                                    {service.service}
+                                                </div>
+                                                <div className="service-desc">
+                                                    {service.description}
+                                                </div>
                                             </div>
-                                            <div className="service-desc">
-                                                {service.description}
+                                            <div className="numbering">
+                                                {startIndex + index + 1 < 10 ? `0${startIndex + index + 1}` : startIndex + index + 1}
                                             </div>
                                         </div>
-                                        <div className="numbering">
-                                            {startIndex + index + 1 < 10 ? `0${startIndex + index + 1}` : startIndex + index + 1}
+                                        <div className="service-pic">
+                                            <img src={service.pic || "/images/thu.jpg"} alt="Service" />
+                                        </div>
+                                        <div className="btns">
+                                            <NavLink to={`/Singleservice/${service._id}`}>
+                                                <button className="btn-outer">Learn More</button>
+                                            </NavLink>
+                                            {user.isAdmin && (
+                                                <div className="service-btn">
+                                                    <button onClick={() => handleUpdate(service)}><MdEdit /></button>
+                                                    <button onClick={() => handleDelete(service._id)}><MdDelete /></button>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
-                                    <div className="service-pic">
-                                        <img src={service.pic || "/images/thu.jpg"} alt="Service" />
-                                    </div>
-                                    <div className="btns">
-                                        <NavLink to={`/Singleservice/${service._id}`}>
-                                            <button className="btn-outer">Learn More</button>
-                                        </NavLink>
-                                        {user.isAdmin && (
-                                            <div className="service-btn">
-                                                <button onClick={() => handleUpdate(service)}><MdEdit /></button>
-                                                <button onClick={() => handleDelete(service._id)}><MdDelete /></button>
-                                            </div>
-                                        )}
-                                    </div>
+                                ))
+                            ) : (
+                                <div className="no-services-message">
+                                    No services found matching your criteria.
                                 </div>
-                            ))
-                        ) : (
-                            <div className="no-services-message">
-                                No services found matching your criteria.
-                            </div>
-                        )
-                    }
+                            )
+                        }
 
+                    </div>
+                    <div className="container">
+                        <button
+                            onClick={() => setCurrentPageIndex((prev) => Math.max(prev - 1, 1))}
+                            disabled={currentPageIndex === 1}
+                        >
+                            &larr;
+                        </button>
+                        {
+                            totalPages > 0 ? `${currentPageIndex} of ${totalPages} pages` : `${currentPageIndex} of 1 pages`
+                        }
+                        {/* {currentPageIndex} of {totalPages} pages */}
+                        <NavLink><button
+                            onClick={() => setCurrentPageIndex((prev) => (prev + 1))}
+                            disabled={currentPageIndex >= totalPages}
+                        >
+                            &rarr;
+                        </button></NavLink>
+                    </div>
                 </div>
-                <div className="container">
-                    <button
-                        onClick={() => setCurrentPageIndex((prev) => Math.max(prev - 1, 1))}
-                        disabled={currentPageIndex === 1}
-                    >
-                        &larr;
-                    </button>
-                    {
-                        totalPages > 0 ? `${currentPageIndex} of ${totalPages} pages` : `${currentPageIndex} of 1 pages`
-                    }
-                    {/* {currentPageIndex} of {totalPages} pages */}
-                    <NavLink><button
-                        onClick={() => setCurrentPageIndex((prev) => (prev + 1))}
-                        disabled={currentPageIndex >= totalPages}
-                    >
-                        &rarr;
-                    </button></NavLink>
-                </div>
-            </div>
+            </div >
             {/* Modal for adding the data  */}
             {
                 modal && (
@@ -417,6 +432,7 @@ export const Service = () => {
                                     <button type="button" onClick={() => setModal(false)} >Close</button>
                                 </div>
                             </form>
+                            {showArrow && <div className="scroll-indicator">&darr;</div>}
                         </div>
                     </div>
                 )
@@ -462,6 +478,7 @@ export const Service = () => {
                                     <button type="button" onClick={() => setUpdateModal(false)} >Close</button>
                                 </div>
                             </form>
+                            {showArrow && <div className="scroll-indicator">&darr;</div>}
                         </div>
                     </div>
                 )

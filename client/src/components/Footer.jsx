@@ -27,14 +27,14 @@ const Footer = () => {
                     <div className="footer-logo">
                         Get in Touch
                     </div>
-                    <div className="footer-cont">
-                        <NavLink to='https://www.instagram.com/prince._11319/' target="_blank" style={{ color: 'white' }}><div className="cont"> <IoLogoInstagram size={24} /> Instagram </div></NavLink>
-                        <div className="cont"><IoLogoFacebook size={24} /> Facebook</div>
-                        <div className="cont"><IoLogoLinkedin size={24} /> Linkedin</div>
+                    <div className="footer-cont-brand">
+                        <NavLink to='https://www.instagram.com/prince._11319/' target="_blank" style={{ color: 'white' }}><div className="cont"> <IoLogoInstagram size={24} />  </div></NavLink>
+                        <div className="cont"><IoLogoFacebook size={24} /></div>
+                        <div className="cont"><IoLogoLinkedin size={24} /></div>
                     </div>
                 </div>
             </div>
-            <div className="" style={{display : 'flex' , alignItems : 'center' , justifyContent : 'center' , marginTop: '20px'}}>
+            <div className="" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '20px' }}>
                 <p style={{ display: 'flex', alignItems: 'center' }}><PiCopyrightBold size={24} /> 2024 Indian Coder. All right reserved.</p>
             </div>
         </footer>
