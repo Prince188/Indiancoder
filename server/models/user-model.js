@@ -32,7 +32,7 @@ const userSchema = new mongoose.Schema({
 })
 
 
-//jwt
+//jwt token gen.. used in auth-controller(register)
 
 userSchema.methods.generateToken = async function () {
     try {
