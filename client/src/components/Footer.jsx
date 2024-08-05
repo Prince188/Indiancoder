@@ -28,9 +28,9 @@ const Footer = () => {
                         Get in Touch
                     </div>
                     <div className="footer-cont-brand">
-                        <NavLink to='https://www.instagram.com/prince._11319/' target="_blank" style={{ color: 'white' }}><div className="cont"> <IoLogoInstagram size={24} />  </div></NavLink>
-                        <div className="cont"><IoLogoFacebook size={24} /></div>
-                        <div className="cont"><IoLogoLinkedin size={24} /></div>
+                        <NavLink to='https://www.instagram.com/prince._11319/' target="_blank" style={{ color: 'white' }}><div className="cont"> <IoLogoInstagram size={36} />  </div></NavLink>
+                        <div className="cont"><IoLogoFacebook size={36} /></div>
+                        <div className="cont"><IoLogoLinkedin size={36} /></div>
                     </div>
                 </div>
             </div>

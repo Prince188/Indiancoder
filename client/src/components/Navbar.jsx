@@ -87,7 +87,7 @@ export const Navbar = () => {
                                         {/* <li><NavLink to="/profile">Profile</NavLink></li> */}
                                         <li onClick={()=>setIsMenuOpen(false)}><NavLink to="/admin"><MdOutlineAdminPanelSettings size={18} /><span className="icon">Admin</span></NavLink></li>
                                     </>
-                                ) : ("")}
+                                ) : ("")} 
                             </ul>
                         </nav>
                     </div>

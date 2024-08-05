@@ -4,20 +4,21 @@
 
 .about-head {
     display: flex;
-    gap: 80px;
+    flex-direction: column;
+    gap: 30px;
     padding: 40px 60px;
     border-bottom: 1px solid #fff;
     padding-top: 0;
 }
 
 .about-title {
-    width: 600px;
+    /* width: 600px; */
     font-size: 38px;
 }
 
 .about-desc {
     line-height: 150%;
-    width: 600px;
+    /* width: 600px; */
     color: #ffffffcc;
     font-size: 16px;
 }

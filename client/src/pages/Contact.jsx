@@ -91,12 +91,7 @@ export const Contact = () => {
                         <button type="submit" className="btn btn-submit">Submit</button>
                     </form>
                     <div className="social-connect">
-                        <h2>Connect With Us on other plateforms</h2>
-                        <div className="social-cont">
-                            <NavLink to='https://www.instagram.com/prince._11319/' target="_blank" style={{color : 'white'}}><div className="cont"> <IoLogoInstagram size={24} /> Instagram </div></NavLink>
-                            <div className="cont"><IoLogoFacebook size={24} /> Facebook</div>
-                            <div className="cont"><IoLogoLinkedin size={24} /> Linkedin</div>
-                        </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.77856654977!2d72.77024267471904!3d21.20095368184314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04d275053f069%3A0x94d6c57b9fa1bf01!2sRaj%20Corner!5e0!3m2!1sen!2sin!4v1722442341521!5m2!1sen!2sin" width="600" height="450" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>

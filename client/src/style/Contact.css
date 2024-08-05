@@ -5,18 +5,19 @@
 .contact-head {
     border-bottom: 1px solid #fff;
     display: flex;
-    gap: 80px;
+    flex-direction: column;
+    gap: 30px;
     padding: 40px 60px;
     padding-top: 0;
 }
 
 .contact-tit {
-    width: 600px;
+    /* width: 600px; */
     font-size: 38px;
 }
 
 .contact-desc {
-    width: 600px;
+    /* width: 600px; */
     font-size: 16px;
     color: #ffffffcc;
 }
